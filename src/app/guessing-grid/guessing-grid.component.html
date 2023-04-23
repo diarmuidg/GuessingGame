@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row justify-content-center mb-5 text-center">
+    <h1>Who's Who?</h1>
+  </div>
+  <div class="row justify-content-center mb-5">
+    <h1>Score</h1>
+    <div class="score-container">
+      <table class="table score-table">
+        <thead>
+          <tr class="text-center">
+            <th></th>
+            <th>Score</th>
+            <th>Streak</th>
+            <th>Max Score</th>
+            <th>Max Streak</th>
+            <th>Names left</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center">
+            <td></td>
+            <td>{{ score }}</td>
+            <td>{{ streak }}</td>
+            <td>{{ getMaxScore() }}</td>
+            <td>{{ getMaxStreak() }}</td>
+            <td>{{ namesLeft }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Add a spacer -->
+  <div style="margin-top: 24px;"></div>
+  <div class="row justify-content-center mb-5 name-to-guess text-center">
+    <span class="name-to-guess " style="font-size: 48px; font-family: 'Pacifico', cursive;">{{ currentName.name
+      }}</span><br>
+  </div>
+  <!-- Add a spacer -->
+  <div style="margin-top: 36px;"></div>
+  <div class="row justify-content-center">
+    <div class="photo-grid">
+      <div class="col-md-3 mb-4" *ngFor="let name of names">
+        <div class="photo-container">
+          <img [src]="name.photo" alt="" (click)="checkGuess(name)" height="150" title="{{name.name}}, {{name.location}}, {{name.jobTitle}}">
+          <div class="name" *ngIf="feedback !== ''">{{ name.name }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-5" *ngIf="feedback !== ''">
+    <div class="col-md-6">
+      <div class="feedback text-center"
+        [ngClass]="{'success': feedback === 'Correct', 'fail': feedback === 'Incorrect'}">
+        <span class="feedback-message">{{ feedback }}</span><br>
+        <span class="personal-info" *ngIf="feedback === 'Correct'">{{ currentName.name
+          }} is a {{ currentName.jobTitle
+          }}, located in {{ currentName.location }}, reporting to {{ currentName.manager }}</span>
+        <!-- Add a spacer -->
+        <div style="margin-top: 36px;"></div>
+        <button class="next-button" *ngIf="feedback !== ''" (click)="onNextClick()">Next</button>
+      </div>
+    </div>
+  </div>
+</div>

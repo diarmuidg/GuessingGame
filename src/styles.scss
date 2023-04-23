@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+/* Set the background color to a bright green */
+body {
+  background-color: #2ecc71;
+}
+
+/* Style the buttons with a yellow background and blue text */
+button {
+  background-color: #f1c40f;
+  color: #3498db;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Use a playful font for the headings */
+h1,
+h2,
+h3 {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+/* Add a border to the images and round the corners */
+img {
+  border: 5px solid #3498db;
+  border-radius: 10px;
+}
+
+/* Add some animation to the buttons */
+button:hover {
+  background-color: #3498db;
+  color: #fff;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Add a background pattern to the body */
+body {
+  background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+}
+

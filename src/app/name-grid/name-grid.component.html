@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row justify-content-center mb-5 text-center">
+        <h1>Who's Who?</h1>
+    </div>
+    <div class="row justify-content-center mb-5">
+        <h1>Score</h1>
+        <div class="score-container">
+            <table class="table score-table">
+                <thead>
+                    <tr class="text-center">
+                        <th></th>
+                        <th>Score</th>
+                        <th>Streak</th>
+                        <th>Max Score</th>
+                        <th>Max Streak</th>
+                        <th>Names left</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td></td>
+                        <td>{{ score }}</td>
+                        <td>{{ streak }}</td>
+                        <td>{{ getMaxScore() }}</td>
+                        <td>{{ getMaxStreak() }}</td>
+                        <td>{{ namesLeft }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Add a spacer -->
+    <div style="margin-top: 36px;"></div>
+    <div class="row justify-content-center">
+        <div class="photo-grid">
+            <div class="col-md-3 mb-4">
+                <div class="photo-container">
+                    <img [src]="currentName.photo" alt="" height="150"
+                        title="{{currentName.name}}, {{currentName.location}}, {{currentName.jobTitle}}">
+                    <div class="name" *ngIf="feedback !== ''">{{ currentName.name }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="photo-grid">
+            <div class="col-md-3 mb-4" style="min-width: 200px;" *ngFor="let name of names">
+                <div class="name-container" >
+                    <button class="next-button" (click)="checkGuess(name)">{{ name.name }}</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5" *ngIf="feedback !== ''">
+        <div class="col-md-6">
+            <div class="feedback text-center"
+                [ngClass]="{'success': feedback === 'Correct', 'fail': feedback === 'Incorrect'}">
+                <span class="feedback-message">{{ feedback }}</span><br>
+                <span class="personal-info" *ngIf="feedback === 'Correct'">{{ currentName.name
+                    }} is a {{ currentName.jobTitle
+                    }}, located in {{ currentName.location }}, reporting to {{ currentName.manager }}</span>
+                <!-- Add a spacer -->
+                <div style="margin-top: 36px;"></div>
+                <button class="next-button" *ngIf="feedback !== ''" (click)="onNextClick()">Next</button>
+            </div>
+        </div>
+    </div>
+</div>

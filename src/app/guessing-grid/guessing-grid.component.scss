@@ -1,0 +1,105 @@
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.photo-container:hover {
+  opacity: 0.8;
+}
+
+.photo-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.photo-container .name {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.feedback .lead {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.next-button {
+  /* other styles */
+  display: block;
+  margin: 0 auto;
+}
+
+.feedback.success {
+  color: green;
+}
+
+.feedback.fail {
+  color: red;
+}
+
+.feedback span {
+  display: block;
+  font-weight: normal;
+  color: black;
+  margin: 0 auto;
+}
+
+.feedback-message,
+.personal-info {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.name-to-guess {
+  text-align: center;
+}
+
+/* Increase the font size for the score */
+.score {
+  font-size: 24px;
+}
+
+/* Add some spacing between the images and the name */
+.name {
+  margin-top: 20px;
+  font-size: 16px;
+  font-family: 'Pacifico', cursive;
+}
+
+.score-table {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  font-family: 'Pacifico', cursive;
+}
+
+.score-table thead tr {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.container {
+  justify-content: center;
+  align-items: center;
+}
