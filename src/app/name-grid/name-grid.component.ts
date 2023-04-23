@@ -1,5 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { NameService } from '../name.service.ts';
+import { NameService } from '../name.service';
 import { Name } from '../name';
 import { CookieService } from 'ngx-cookie-service';
 
