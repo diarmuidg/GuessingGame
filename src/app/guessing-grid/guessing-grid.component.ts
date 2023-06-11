@@ -20,8 +20,10 @@ export class GuessingGridComponent implements OnInit {
   public success = '';
   public failure = '';
   public score = 0;
+  public wrong = 0;
   public streak = 0;
   public namesLeft = 0;
+  public chosenName: string = ""; /* will contain the name to be displayed upon a guess */
 
   constructor(private cookieService: CookieService, private nameService: NameService) {
   }
@@ -54,6 +56,7 @@ export class GuessingGridComponent implements OnInit {
       this.feedback = 'Correct';
       this.score += 1;
       this.streak += 1;
+      this.chosenName = guessedName;
       this.updateMaxScore();
       this.updateMaxStreak();
 
@@ -71,8 +74,9 @@ export class GuessingGridComponent implements OnInit {
     } else {
       this.failure = 'Incorrect! The person in the photo is ' + name.name + ', who works as a ' + name.jobTitle + ' in the ' + name.location + ' office, reporting to ' + name.manager + '.';
       this.success = '';
-      this.feedback = 'Incorrect';
+      this.feedback = this.failure;
       this.streak = 0;
+      this.wrong += 1;
     }
   }
 
@@ -110,6 +114,7 @@ export class GuessingGridComponent implements OnInit {
     this.feedback = '';
     this.success = '';
     this.failure = '';
+    this.chosenName = '';
   }
 
   shuffle(array: any[]) {

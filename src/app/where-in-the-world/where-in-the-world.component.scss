@@ -1,0 +1,94 @@
+.where-in-the-world {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  .svg-container {
+    width: 70%;
+    height: 70%;
+
+    object {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .country-info {
+    text-align: center;
+
+    h1 {
+      font-size: 3em;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 2em;
+    }
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+  }
+}
+
+.country-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+
+  li {
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .tooltip {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 4px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    &.show-tooltip .tooltip {
+      opacity: 1;
+    }
+  }
+}
+.land {
+  fill: #ccc;
+  transition: fill 0.5s;
+
+  &.expand {
+    animation: expand-animation 1s;
+  }
+}
+
+@keyframes expand-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    fill: red;
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,15 @@
+<div class="where-in-the-world">
+  <div class="svg-container">
+    <object #map type="image/svg+xml" data="assets/svg/world.svg">Your browser does not support SVGs</object>
+  </div>
+  <div class="country-info" *ngIf="currentCountry && currentYear">
+    <h1>{{ currentCountry }}</h1>
+    <h2>Year: {{ currentYear }}</h2>
+  </div>
+  <button (click)="resetMap()">Reset and Start Again</button>
+</div>
+<ul class="country-list">
+  <li *ngFor="let country of countries">
+    {{ country.name }}
+  </li>
+</ul>

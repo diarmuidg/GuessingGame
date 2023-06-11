@@ -1,9 +1,25 @@
-<!-- app.component.html -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">My App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/name-grid" routerLinkActive="active">Name Grid</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/guessing-grid" routerLinkActive="active">Guessing Grid</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/where-in-the-world" routerLinkActive="active">Where in the World</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-<div class="container">
-  <h1>Welcome to the Guessing App</h1>
-  <p>Choose a game:</p>
-  <button mat-raised-button style="margin: 24px;" color="primary" routerLink="/guessing-grid">Guessing Grid</button>
-  <button mat-raised-button style="margin: 24px;" color="primary" routerLink="/name-grid">Name Grid</button>
+
+<div class="container mt-4">
   <router-outlet></router-outlet>
 </div>
